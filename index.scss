@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&display=swap');
+
+/* Primary colors */
+$moderate-violet: hsl(263, 55%, 52%);
+$vry-drk-grayish-blue: hsl(217, 19%, 35%);
+$vry-drk-blackish-blue: hsl(219, 29%, 14%);
+$white: hsl(0, 0%, 100%);
+
+/* Neutral colors */
+$light-grayish: hsl(0, 0%, 81%);
+$light-grayish-blue: hsl(210, 46%, 95%);
+
+/*
+Note for text colors:
+
+1. "Verified Graduate" has the same color as the person's name with 50% opacity
+2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity
+*/
+
+/* Custom colors */
+$border-violet: hsl(262, 57%, 66%);
+$box-shadow: hsla(217, 19%, 35%, .1);
+
+/* Font family */
+$ff-barlow: 'Barlow Semi Condensed', sans-serif;
+
+:root {
+    font-size: 13px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: $light-grayish-blue;
+    font-family: $ff-barlow;
+    font-size: 1rem;
+}
+
+.wrapper {
+    display: grid;
+    grid-row-gap: 26px;
+    width: 320px;
+    margin: 70px auto 30px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    padding: 24px 34px 30px 30px;
+    color: $light-grayish;
+    box-shadow: 10px 10px 10px $box-shadow;
+
+    &:nth-child(1) {
+        background-color: $moderate-violet;
+        background-image: url(images/bg-pattern-quotation.svg);
+        background-repeat: no-repeat;
+        background-position: 194px 0;
+    }
+
+    &:nth-child(2) {
+        background-color: $vry-drk-grayish-blue;
+    }
+
+    &:nth-child(3) {
+        background-color: $white;
+        color: $vry-drk-grayish-blue;
+    }
+
+    &:nth-child(4) {
+        background-color: $vry-drk-blackish-blue;
+    }
+
+    &:nth-child(5) {
+        background-color: $white;
+        color: $vry-drk-grayish-blue;
+    }
+
+    &__profile-pic {
+        border: 2px solid transparent;
+        border-radius: 50%;
+        width: 30px;
+        box-sizing: content-box;
+        float: left;  
+    }
+
+    &__profile-name {
+        float: left;
+        margin-left: 16px;
+        margin-bottom: 16px;
+    
+        > p:nth-child(1) {
+            font-weight: 500;
+        }
+    
+        > p:nth-child(2) {
+            opacity: 50%;
+            font-size: .9rem;
+        }
+    }
+    
+    &__quotes1 {
+        clear: left;
+        font-size: 1.52rem;
+        font-weight: 500;
+        color: $white;
+        margin-bottom: 22px;
+    }
+    
+    &__quotes2 {
+        line-height: 1.35rem;
+        opacity: 70%;
+    }
+}
+
+.card-1 > .card__profile-pic {
+    border-color: $border-violet;
+}
+
+.card-4 > .card__profile-pic {
+    border-color: $moderate-violet;
+}
+
+.card-3 > .card__quotes1,
+.card-5 > .card__quotes1 {
+    color: $vry-drk-grayish-blue;
+    font-weight: 600;
+    font-size: 1.51rem;
+}
+
+@media screen and(min-width: 700px) {
+    .wrapper {
+        width: 660px;
+    }
+
+    .card:nth-child(1) {
+        background-position: 510px 0;
+    }
+}
+
+
+@media screen and(min-width: 1120px) {
+    .wrapper {
+        margin-top: 162px;
+        margin-bottom: 80px;
+        grid-row-gap: 24px;
+        grid-column-gap: 30px;
+        grid-template-columns: auto auto auto auto auto;
+        width: 1110px;
+    }
+
+    .card:nth-child(1) {
+        background-position: 320px 0;
+    }
+
+    .card-1 {
+        grid-column: 1 / span 3;
+    }
+
+    .card-2 {
+        grid-column: 4 / span 1;
+    }
+
+    .card-3 {
+        grid-column: 1 / span 1;   
+    }
+
+    .card-4 {
+        grid-column: 2 / span 3;
+    }
+
+    .card-5 {
+        grid-column: 5 / span 1;
+        grid-row: 1 / span 2;
+    }
+}
